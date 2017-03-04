@@ -27,4 +27,28 @@ angular
             var url = ["/api/pins", pin.number, pin.mode ? "on" : "off"].join("/");
             $http.get(url);
         };
+
+
+        var test = function () {
+            var current = 0;
+            var reverse = false;
+
+            var interval = setInterval(function () {
+                self.press(self.pins[current]);
+                if (current == self.pins.length - 1) {
+                    reverse = true;
+                }
+                if (reverse) {
+                    current--
+                } else {
+                    current++
+                }
+
+                if (current < 0) {
+                    clearInterval(interval);
+                }
+            }, 500);
+        }
+
+        test();
     });
