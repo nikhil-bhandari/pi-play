@@ -14,5 +14,16 @@ module.exports = function (app) {
         res
             .status(200)
             .json({ok: true, pin: req.params.pin, output: req.params.output})
-    })
+    });
+
+    app.post("/api/pins", function (req, res) {
+        var out = req
+            .body
+            .pins
+            .map(function (pin) {
+                pin.mode = (new Gpio(pin.number)).direction() == "in" ? 0 : 1;
+                return pin
+            });
+        res.status(200).json(out);
+    });
 };
