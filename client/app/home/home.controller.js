@@ -25,7 +25,7 @@ angular
         self.press = function (pin) {
             pin.mode = +!pin.mode;
             var url = ["/api/pins", pin.number, pin.mode ? "on" : "off"].join("/");
-            $http.get(url);
+            //$http.get(url);
         };
 
 
@@ -35,20 +35,20 @@ angular
 
             var interval = setInterval(function () {
                 self.press(self.pins[current]);
-                if (current == self.pins.length - 1) {
+                if (current == self.pins.length - 1 && !reverse) {
                     reverse = true;
-                }
-                if (reverse) {
-                    current--
                 } else {
-                    current++
+                    if (reverse) {
+                        current--
+                    } else {
+                        current++
+                    }
                 }
-
                 if (current < 0) {
                     clearInterval(interval);
                 }
             }, 500);
-        }
+        };
 
         test();
     });
