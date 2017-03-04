@@ -25,7 +25,14 @@ angular
         self.press = function (pin) {
             pin.mode = +!pin.mode;
             var url = ["/api/pins", pin.number, pin.mode ? "on" : "off"].join("/");
-            //$http.get(url);
+            $http
+                .get(url)
+                .then(function () {
+                    //console.log("Don")
+                })
+                .catch(function () {
+                    console.log("Error on server");
+                });
         };
 
 
