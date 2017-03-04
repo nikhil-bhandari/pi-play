@@ -61,8 +61,8 @@ angular
             .post("/api/pins", {
                 pins: self.pins
             })
-            .then(function () {
-                //console.log("Don")
+            .then(function (response) {
+                self.pins = response.data
             })
             .catch(function () {
                 console.log("Error on server");
