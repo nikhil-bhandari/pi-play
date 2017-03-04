@@ -1,0 +1,21 @@
+{
+  "name": "pi-play",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "nikhil-bhandari <nikhil.bhandari@6point9.in>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-ui-router": "^0.4.2"
+  }
+}
