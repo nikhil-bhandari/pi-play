@@ -1,5 +1,8 @@
-<div class="buttons">
-    <button class="btn btn-large" ng-repeat="pin in ctrl.pins" ng-click="ctrl.press(pin)">
-
+<div class="buttons" style="margin-top: 200px;">
+    <button class="btn btn-large"
+            ng-repeat="pin in ctrl.pins"
+            ng-click="ctrl.press(pin)"
+            ng-class="{on:pin.mode}">
+        {{pin.number}}
     </button>
 </div>

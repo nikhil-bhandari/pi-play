@@ -7,19 +7,19 @@ angular
             {number: 2, mode: 0},
             {number: 3, mode: 0},
             {number: 4, mode: 0},
-            {number: 8, mode: 0},
-            {number: 9, mode: 0},
-            {number: 10, mode: 0},
-            {number: 11, mode: 0},
             {number: 14, mode: 0},
             {number: 15, mode: 0},
-            {number: 17, mode: 0},
             {number: 18, mode: 0},
+            {number: 17, mode: 0},
+            {number: 27, mode: 0},
             {number: 22, mode: 0},
             {number: 23, mode: 0},
-            {number: 24, mode: 0},
             {number: 25, mode: 0},
-            {number: 27, mode: 0}
+            {number: 24, mode: 0},
+            {number: 10, mode: 0},
+            {number: 8, mode: 0},
+            {number: 9, mode: 0},
+            {number: 11, mode: 0}
         ];
 
         self.press = function (pin) {
@@ -54,8 +54,20 @@ angular
                 if (current < 0) {
                     clearInterval(interval);
                 }
-            }, 500);
+            }, 100);
         };
 
-        test();
+        $http
+            .post("/api/pins", {
+                pins: self.pins
+            })
+            .then(function () {
+                //console.log("Don")
+            })
+            .catch(function () {
+                console.log("Error on server");
+            });
+
+
+        //test();
     });
