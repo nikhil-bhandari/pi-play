@@ -7,9 +7,9 @@ module.exports = function (app) {
 
     app.get("/api/pins/:pin/:output", function (req, res) {
         if (req.param.output == "on") {
-            var relay = new Gpio(req.param.pin, 'out');
+            var relay = new Gpio(req.params.pin, 'out');
         } else {
-            var relay = new Gpio(req.param.pin, 'in');
+            var relay = new Gpio(req.params.pin, 'in');
         }
         res
             .status(200)
