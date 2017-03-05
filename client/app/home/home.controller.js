@@ -50,7 +50,7 @@ angular
             var interval = setInterval(function () {
                 self.press(self.pins[current]);
                 if (current == self.pins.length - 1 && !reverse) {
-                    //reverse = true;
+                    reverse = true;
                 } else {
                     if (reverse) {
                         current--
