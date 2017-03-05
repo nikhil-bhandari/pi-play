@@ -35,7 +35,7 @@ angular
                 });
             if (pin.mode) {
                 setTimeout(function () {
-                    self.press(pin);
+                    //self.press(pin);
                 }, 100);
 
             }
