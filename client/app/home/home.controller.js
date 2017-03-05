@@ -24,7 +24,7 @@ angular
 
         self.press = function (pin) {
             pin.mode = +!pin.mode;
-            var url = ["/api/pins", pin.number, pin.mode ? "on" : "off"].join("/");
+            var url = ["http://10.0.0.8:3000/api/pins", pin.number, pin.mode ? "on" : "off"].join("/");
             $http
                 .get(url)
                 .then(function () {
@@ -33,6 +33,13 @@ angular
                 .catch(function () {
                     console.log("Error on server");
                 });
+            if (pin.mode) {
+                setTimeout(function () {
+                    self.press(pin);
+                }, 100);
+
+            }
+
         };
 
 
@@ -69,5 +76,5 @@ angular
             });
 
 
-        //test();
+        test();
     });
